@@ -1,11 +1,13 @@
 {
   "name": "@pnettto/design-system",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Pedro Netto's Design System",
   "type": "module",
   "scripts": {
     "build": "node scripts/bundle-assets.js",
-    "dev": "concurrently \"browser-sync start --server dist --files 'dist/**/*' --no-open --verbose\" \"npm run build watch\""
+    "watch": "npm run build watch",
+    "dev": "concurrently \"browser-sync start --server dist --files 'dist/**/*' --no-open --verbose\" \"npm run build watch\"",
+    "bump": "./bump.sh"
   },
   "devDependencies": {
     "browser-sync": "^3.0.4",
