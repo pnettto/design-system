@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pedro Netto's Design System</title>
+        <meta
+            name="description"
+            content="Pedro Netto's Design System"
+        >
+        <link rel="icon" type="image/png" href="/images/logo.png">
+        <link rel="stylesheet" href="/css/bundle.min.css">
+    </head>
+    <body class="no-js">
+        <script>
+            document.body.classList.remove("no-js");
+        </script>
+
+        <div class="container">
+            <header class="site-header">
+                <a href="/" class="logo" aria-label="Home">
+                    <svg
+                        class="logo-img"
+                        width="85"
+                        height="84"
+                        viewBox="0 0 85 84"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            class="bg"
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M41.5243 0.00231154C53.1617 0.133336 63.3614 6.42565 71.0342 15.1674C79.2761 24.5575 85.5608 35.9671 83.9629 48.3532C82.1703 62.2487 75.3441 76.5851 62.4117 82.0057C49.9528 87.2277 36.7258 79.6813 24.9322 73.0957C14.3337 67.1775 4.0323 59.6666 1.2588 47.8578C-1.53198 35.9754 3.30723 23.8363 11.1684 14.4934C18.7602 5.47057 29.7263 -0.130522 41.5243 0.00231154Z"
+                            fill="#000000DF"
+                            fill-opacity="0.8"
+                        />
+                        <path
+                            d="M25.3124 35.2789C22.3624 35.2789 19.6124 36.6789 17.6124 39.3789L17.2624 35.9789H12.4124V73.1789L18.0124 72.5289V60.1289C19.7124 62.0789 21.9624 63.0289 24.7124 63.0289C31.4124 63.0289 34.9124 57.1789 34.9124 49.1289C34.9124 40.7289 32.2624 35.2789 25.3124 35.2789ZM23.7624 39.5789C27.2624 39.5789 29.0124 42.3789 29.0124 49.1789C29.0124 55.7789 27.0124 58.6789 23.2124 58.6789C21.0624 58.6789 19.2624 57.6289 18.0124 55.7289V43.3789C19.3124 41.3289 21.2624 39.5789 23.7624 39.5789ZM42.4417 62.3789H48.0417V43.4289C49.4417 41.4289 51.6417 39.5789 54.2417 39.5789C57.4417 39.5789 57.9917 41.3289 57.9917 45.9289V62.3789H63.5917V43.1289C63.5917 38.1789 61.1417 35.2789 56.2417 35.2789C53.0417 35.2789 49.8917 36.7289 47.6917 39.4289L47.2917 35.9789H42.4417V62.3789Z"
+                            fill="white"
+                            fill-opacity="0.9"
+                        />
+                    </svg>
+                </a>
+                <div
+                    style="display: flex; align-items: center; gap: var(--space-md)"
+                >
+                    <button
+                        class="burger-menu"
+                        aria-label="Toggle Menu"
+                        aria-expanded="false"
+                    >
+                        <span class="burger-bar"></span>
+                        <span class="burger-bar"></span>
+                        <span class="burger-bar"></span>
+                    </button>
+                    <nav class="main-nav">
+                        <ul>
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <li>
+                                <a href="/gallery.html" aria-current="page"
+                                >Gallery</a>
+                            </li>
+                        </ul>
+                        <div class="theme-switch-wrapper">
+                            <label
+                                class="theme-switch"
+                                for="theme-toggle"
+                                aria-label="Toggle Dark/Light Mode"
+                            >
+                                <input type="checkbox" id="theme-toggle" />
+                                <div class="slider"></div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+
+            <main>
+                <article class="design-system-showcase">
+                    <h1>Design System</h1>
+                    <p class="intro-text">
+                        A modular, portable design system. Components and
+                        variables for consistent UI.
+                    </p>
+
+                    <hr>
+
+                    <section>
+                        <h2 class="underlined">Gallery</h2>
+                        <div id="gallery-masonry" class="gallery-grid">
+                            /* Gallery buttons added via js */
+                        </div>
+                    </section>
+                </article>
+            </main>
+        </div>
+
+        <div id="lightbox" class="lightbox" aria-hidden="true">
+            <button class="lightbox-close" aria-label="Close lightbox">
+                <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <button class="nav-arrow lightbox-prev" aria-label="Previous image">
+                ◀
+            </button>
+            <button class="nav-arrow lightbox-next" aria-label="Next image">
+                ▶
+            </button>
+            <div id="lightbox-content" class="lightbox-content"></div>
+        </div>
+
+        <script type="module" src="/js/bundle.min.js"></script>
+        <script type="module">
+            import {
+                generateImgTag,
+                initGallery,
+            } from "./js/bundle.min.js";
+
+            document.addEventListener(
+                "DOMContentLoaded",
+                () => {
+                    const images = [
+                        {
+                            "images": {
+                                "jpeg": [
+                                    {
+                                        "url":
+                                            "/images/gallery/_DSF0039-X7oifWDCJr-900w.jpeg",
+                                        "width": 900,
+                                        "height": 600,
+                                        "format": "jpeg",
+                                    },
+                                    {
+                                        "url":
+                                            "/images/gallery/_DSF0039-X7oifWDCJr-1200w.jpeg",
+                                        "width": 1200,
+                                        "height": 800,
+                                        "format": "jpeg",
+                                    },
+                                    {
+                                        "url":
+                                            "/images/gallery/_DSF0039-X7oifWDCJr-1920w.jpeg",
+                                        "width": 1920,
+                                        "height": 1280,
+                                        "format": "jpeg",
+                                    },
+                                ],
+                            },
+                        },
+                        {
+                            "images": {
+                                "jpeg": [
+                                    {
+                                        "url":
+                                            "/images/gallery/_DSF0051-1hCsPpKat8-900w.jpeg",
+                                        "width": 900,
+                                        "height": 600,
+                                        "format": "jpeg",
+                                    },
+                                    {
+                                        "url":
+                                            "/images/gallery/_DSF0051-1hCsPpKat8-1200w.jpeg",
+                                        "width": 1200,
+                                        "height": 800,
+                                        "format": "jpeg",
+                                    },
+                                    {
+                                        "url":
+                                            "/images/gallery/_DSF0051-1hCsPpKat8-1920w.jpeg",
+                                        "width": 1920,
+                                        "height": 1280,
+                                        "format": "jpeg",
+                                    },
+                                ],
+                            },
+                        },
+                        {
+                            "images": {
+                                "jpeg": [
+                                    {
+                                        "url":
+                                            "/images/gallery/_DSF0115-4KilmiT2dk-900w.jpeg",
+                                        "width": 900,
+                                        "height": 600,
+                                        "format": "jpeg",
+                                    },
+                                    {
+                                        "url":
+                                            "/images/gallery/_DSF0115-4KilmiT2dk-1200w.jpeg",
+                                        "width": 1200,
+                                        "height": 800,
+                                        "format": "jpeg",
+                                    },
+                                    {
+                                        "url":
+                                            "/images/gallery/_DSF0115-4KilmiT2dk-1920w.jpeg",
+                                        "width": 1920,
+                                        "height": 1280,
+                                        "format": "jpeg",
+                                    },
+                                ],
+                            },
+                        },
+                        {
+                            "images": {
+                                "jpeg": [
+                                    {
+                                        "url":
+                                            "/images/gallery/_DSF0117-buscEw9NM3-900w.jpeg",
+                                        "width": 900,
+                                        "height": 600,
+                                        "format": "jpeg",
+                                    },
+                                    {
+                                        "url":
+                                            "/images/gallery/_DSF0117-buscEw9NM3-1200w.jpeg",
+                                        "width": 1200,
+                                        "height": 800,
+                                        "format": "jpeg",
+                                    },
+                                    {
+                                        "url":
+                                            "/images/gallery/_DSF0117-buscEw9NM3-1920w.jpeg",
+                                        "width": 1920,
+                                        "height": 1280,
+                                        "format": "jpeg",
+                                    },
+                                ],
+                            },
+                        },
+                    ];
+
+                    const makeButton = (image) => {
+                        return `
+                        <button
+                            class="gallery-item"
+                            data-full-src="${
+                            image.images
+                                .jpeg[
+                                    image.images.jpeg.length - 1
+                                ].url
+                        }"
+                            data-image-metadata='${
+                            JSON.stringify(image)
+                        }'
+                            style="aspect-ratio: 3/2"
+                        >
+                            ${generateImgTag(image)}
+                        </button>
+                        `;
+                    };
+
+                    const buttons = images.map((image) =>
+                        makeButton(image)
+                    );
+                    const galleryEl = document.getElementById(
+                        "gallery-masonry",
+                    );
+                    galleryEl.innerHTML = buttons;
+
+                    if (typeof initMasonry === "function") {
+                        initMasonry("#gallery-masonry", [
+                            { width: 1200, columns: 3 },
+                            { width: 600, columns: 2 },
+                            { width: 0, columns: 1 },
+                        ]);
+                    }
+
+                    initGallery();
+                },
+            );
+        </script>
+    </body>
+</html>

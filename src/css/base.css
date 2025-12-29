@@ -1,0 +1,117 @@
+/* ==========================================================================
+   BASE - Reset & Typography
+   ========================================================================== */
+
+@import url("https://use.typekit.net/pmu6sig.css");
+
+/* Reset */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+  font-size: var(--fs-base);
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: var(--font);
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: all var(--dur) ease;
+}
+
+a.anchor {
+  height: 0;
+  border: 0;
+}
+
+a:hover {
+  color: var(--highlight);
+  border-bottom-color: var(--highlight);
+}
+
+/* Dividers */
+hr {
+  border: 0;
+  height: 1px;
+  background-color: var(--bg-alt);
+  margin: 4rem 0;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  color: var(--text-head);
+  line-height: 1.2;
+  margin-top: var(--sp-md);
+  margin-bottom: var(--sp-md);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: var(--fs-2xl);
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: var(--fs-xl);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--sp-lg);
+}
+
+h2.underlined {
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: var(--sp-xs);
+}
+
+h3 {
+  font-size: var(--fs-lg);
+}
+
+/* Paragraphs */
+p {
+  margin-top: 0;
+  margin-bottom: 1.8rem;
+}
+
+/* Pictures */
+picture {
+  display: block;
+  width: 100%;
+}
+
+/* iframes, used mostly for demos */
+iframe {
+  width: 100%; 
+  aspect-ratio: 4 / 3; 
+  zoom: 50%; 
+  margin-bottom: 2rem;
+  border: 0;
+  border-radius: var(--radius-lg);
+}
+
+@media (min-width: 600px) {
+  iframe {
+    aspect-ratio: 16 / 9; 
+  }
+}

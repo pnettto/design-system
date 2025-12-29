@@ -1,0 +1,212 @@
+/* ==========================================================================
+   CODE - Code Blocks, Syntax Highlighting & Code Runner
+   ========================================================================== */
+
+/* ==========================================================================
+   Prism Syntax Highlighting (Tomorrow Night Eighties theme)
+   ========================================================================== */
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #ccc;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  border-radius: var(--radius);
+  tab-size: 4;
+  hyphens: none;
+}
+
+pre[class*="language-"] {
+  padding: 1.5em;
+  margin: 0.5em 0;
+  overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #1c1c1c;
+}
+
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+
+/* Token colors */
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #999;
+}
+
+.token.punctuation {
+  color: #ccc;
+}
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted {
+  color: #e2777a;
+}
+
+.token.function-name {
+  color: #6196cc;
+}
+
+.token.boolean,
+.token.number,
+.token.function {
+  color: #f08d49;
+}
+
+.token.property,
+.token.class-name,
+.token.constant,
+.token.symbol {
+  color: #f8c555;
+}
+
+.token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin {
+  color: #cc99cd;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+  color: #7ec699;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+  color: #67cdcc;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+/* ==========================================================================
+   Code Container & Code Runner
+   ========================================================================== */
+
+.code-container {
+  position: relative;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1.5em 0;
+}
+
+.code-header {
+  padding: 0.65rem 1rem;
+  font-size: 0.8rem;
+  border-bottom: 2px solid var(--bg);
+  line-height: 1;
+}
+
+.language-label {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.6rem;
+  padding: 0.1rem 0.3rem;
+  border-radius: 5px;
+  background-color: var(--bg);
+  color: var(--text-muted);
+}
+
+.code-container pre {
+  white-space: pre !important;
+  display: flex !important;
+  align-items: center !important;
+  min-height: 0 !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 1rem !important;
+}
+
+.code-container pre code {
+  font-size: 0.8rem;
+  line-height: 1.3;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+.code-container button {
+  background: transparent;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.code-container button:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+.code-container .output-header {
+  padding: 5px 15px;
+  font-size: 0.8em;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.code-container .code-output {
+  display: none;
+  padding: 0 15px 15px 15px;
+  font-size: 0.8rem;
+  color: #b5cea8;
+  white-space: pre-wrap;
+  min-height: 1.2em;
+}
+
+.code-container .code-output.is-loaded {
+  display: block;
+}
+
+.code-container .code-spinner {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

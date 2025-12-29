@@ -1,0 +1,43 @@
+/* ==========================================================================
+   TIMELINE - Vertical Timeline
+   ========================================================================== */
+
+.timeline {
+  position: relative;
+  padding-left: var(--sp-lg);
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  width: 2px;
+  height: calc(100% - 1rem);
+  background-color: var(--border);
+}
+
+.timeline-item {
+  margin-bottom: var(--sp-xl);
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -2.6rem;
+  top: var(--sp-xs);
+  width: var(--sp-sm);
+  height: var(--sp-sm);
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+}
+
+.timeline-year {
+  font-family: var(--font);
+  color: var(--accent);
+  font-weight: bold;
+  font-size: var(--fs-lg);
+  margin-bottom: var(--sp-xs);
+}

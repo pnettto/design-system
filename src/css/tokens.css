@@ -1,0 +1,167 @@
+/* ==========================================================================
+   TOKENS - Design System Variables
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --bg: hsl(212 35% 6% / 1);
+  --bg-alt: hsl(212 40% 12% / 1);
+  --text: hsl(0 0% 74% / 1);
+  --text-head: hsl(0 0% 82% / 1);
+  --text-muted: hsl(0 0% 60% / 1);
+  --accent: hsl(41 35% 50% / 1);
+  --highlight: #efefef;
+  --border: #333333;
+
+  /* Typography */
+  --font: "code saver", monospace;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.9rem;
+  --fs-base: 18px;
+  --fs-md: 1.1rem;
+  --fs-lg: 1.3rem;
+  --fs-xl: 1.8rem;
+  --fs-2xl: 2.5rem;
+
+  /* Spacing */
+  --sp-xs: 0.5rem;
+  --sp-sm: 1rem;
+  --sp-md: 1.5rem;
+  --sp-lg: 2rem;
+  --sp-xl: 3rem;
+  --sp-2xl: 4rem;
+  --sp-3xl: 5rem;
+  --sp-4xl: 6rem;
+  --sp-5xl: 8rem;
+
+  /* Layout */
+  --container-w: min(90vw, 1600px);
+  --container-narrow: 1000px;
+  --container-large: 1920px;
+  --inner-max-w: 900px;
+
+  /* Borders */
+  --radius: 6px;
+  --radius-lg: 10px;
+  --radius-full: 9999px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur: 0.2s;
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  --bg: hsl(33 15% 75% / 1);
+  --bg-alt: hsl(33 15% 70% / 1);
+  --accent: hsl(212 95% 25% / 1);
+  --text: hsl(0 0% 15% / 1);
+  --text-head: #111111;
+  --text-muted: #333333;
+  --border: #333333;
+  --highlight: #000000;
+}
+
+/* Legacy Variable Aliases (for backward compatibility) */
+:root {
+  --bg-color: var(--bg);
+  --bg-secondary: var(--bg-alt);
+  --text-main: var(--text);
+  --text-heading: var(--text-head);
+  --accent-color: var(--accent);
+  --highlight-color: var(--highlight);
+  --border-color: var(--border);
+  --font-primary: var(--font);
+  --font-size-xs: var(--fs-xs);
+  --font-size-sm: var(--fs-sm);
+  --font-size-base: var(--fs-base);
+  --font-size-md: var(--fs-md);
+  --font-size-lg: var(--fs-lg);
+  --font-size-xl: var(--fs-xl);
+  --font-size-2xl: var(--fs-2xl);
+  --space-xs: var(--sp-xs);
+  --space-sm: var(--sp-sm);
+  --space-md: var(--sp-md);
+  --space-lg: var(--sp-lg);
+  --space-xl: var(--sp-xl);
+  --space-2xl: var(--sp-2xl);
+  --space-3xl: var(--sp-3xl);
+  --space-4xl: var(--sp-4xl);
+  --space-5xl: var(--sp-5xl);
+  --container-width: var(--container-w);
+  --container-width-narrow: var(--container-narrow);
+  --container-width-large: var(--container-large);
+  --inner-container-max-width: var(--inner-max-w);
+  --radius-base: var(--radius);
+  --transition-effect: var(--ease);
+  --leading-normal: 1.6;
+  --leading-tight: 1.2;
+}
+
+/* Responsive Typography Scale */
+@media (min-width: 1000px) {
+  :root { --fs-base: 16px; }
+}
+
+@media (min-width: 1512px) {
+  :root { --fs-base: 18px; }
+}
+
+@media (min-width: 1680px) {
+  :root {
+    --fs-base: 20px;
+    --container-narrow: 1100px;
+  }
+}
+
+@media (min-width: 1890px) {
+  :root {
+    --fs-base: 22px;
+    --container-narrow: 1200px;
+  }
+}
+
+@media (min-width: 2016px) {
+  :root {
+    --fs-base: 24px;
+    --container-narrow: 1300px;
+  }
+}
+
+@media (min-width: 2228px) {
+  :root {
+    --fs-base: 26px;
+    --container-narrow: 1400px;
+    --inner-max-w: 1200px;
+  }
+}
+
+@media (min-width: 3024px) {
+  :root {
+    --fs-base: 32px;
+    --container-w: min(90vw, 2000px);
+    --container-narrow: 1800px;
+    --container-large: 2500px;
+    --inner-max-w: 1500px;
+  }
+}
+
+@media (min-width: 4536px) {
+  :root {
+    --fs-base: 48px;
+    --container-w: min(90vw, 3000px);
+    --container-narrow: 2700px;
+    --container-large: 3500px;
+    --inner-max-w: 2000px;
+  }
+}
+
+@media (min-width: 6048px) {
+  :root {
+    --fs-base: 65px;
+    --container-w: min(90vw, 4500px);
+    --container-narrow: 3600px;
+    --container-large: 5000px;
+    --inner-max-w: 2500px;
+  }
+}

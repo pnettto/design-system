@@ -1,0 +1,19 @@
+{
+  "name": "@pnettto/design-system",
+  "version": "1.0.0",
+  "description": "Pedro Netto's Design System",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/bundle-assets.js",
+    "dev": "concurrently \"browser-sync start --server dist --files 'dist/**/*' --no-open --verbose\" \"npm run build watch\""
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "concurrently": "^9.2.1",
+    "esbuild": "^0.27.2"
+  },
+  "dependencies": {
+    "plyr": "^3.8.3",
+    "prismjs": "^1.30.0"
+  }
+}

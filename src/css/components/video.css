@@ -1,0 +1,39 @@
+/* ==========================================================================
+   VIDEO - Plyr Video Player Styles
+   ========================================================================== */
+
+/* Default Plyr theme integration */
+.plyr {
+  --plyr-color-main: var(--accent);
+  --plyr-video-background: var(--bg);
+  --plyr-menu-background: var(--bg);
+  --plyr-menu-color: var(--text);
+  --plyr-menu-border-color: var(--bg);
+  --plyr-tooltip-background: var(--accent);
+  --plyr-tooltip-color: var(--bg);
+}
+
+/* Video wrapper */
+.video-wrapper {
+  width: 100%;
+}
+
+.video-wrapper video {
+  width: 100%;
+}
+
+.video-wrapper .caption {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+@media (min-width: 1200px) {
+  .video-wrapper {
+    width: calc(90vw - 2 * var(--sp-lg));
+    max-width: 70rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 1.5rem;
+  }
+}

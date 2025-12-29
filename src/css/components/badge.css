@@ -1,0 +1,45 @@
+/* ==========================================================================
+   BADGE - Tag & Badge Components
+   ========================================================================== */
+
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-xs);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sticky-tags {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg);
+  padding: var(--sp-sm) 0;
+  margin-bottom: var(--sp-lg);
+}
+
+.badge {
+  font-size: var(--fs-xs);
+  padding: 0.25em 0.7em;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-alt);
+  color: var(--text-head);
+  border: none;
+  text-decoration: none;
+  transition: all var(--dur);
+  font-family: var(--font);
+}
+
+.badge:hover {
+  background-color: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+.tags-list.mini-tags .badge {
+  font-size: var(--fs-xs);
+  padding: 0.1em 0.5em;
+  opacity: 0.8;
+}

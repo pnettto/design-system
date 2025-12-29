@@ -1,0 +1,155 @@
+/* ==========================================================================
+   CAROUSEL - Horizontal Scroll Carousel
+   ========================================================================== */
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: var(--sp-xl);
+}
+
+@media (min-width: 900px) {
+  .carousel-wrapper {
+    width: calc(100vw - 2 * var(--sp-lg));
+    max-width: 1500px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  padding: var(--sp-md) 0;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: var(--sp-lg);
+  padding-bottom: var(--sp-md);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-arrow.prev {
+  left: -1rem;
+}
+
+.carousel-arrow.next {
+  right: -1rem;
+}
+
+@media (max-width: 900px) {
+  .carousel-arrow.prev {
+    left: -1.5rem;
+  }
+
+  .carousel-arrow.next {
+    right: -1.5rem;
+  }
+}
+
+/* Carousel Card */
+.carousel-card {
+  flex: 0 0 85%;
+  scroll-snap-align: center;
+  background: var(--bg-alt);
+  padding: var(--sp-lg);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6rem;
+  background: linear-gradient(to bottom, transparent, var(--bg-alt));
+  pointer-events: none;
+  z-index: 2;
+}
+
+.carousel-scroll-area {
+  max-height: 20rem;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.carousel-scroll-area::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .carousel-card {
+    flex: 0 0 45%;
+  }
+}
+
+@media (min-width: 900px) {
+  .carousel-card {
+    flex: 0 0 400px;
+    scroll-snap-align: start;
+  }
+}
+
+/* Reference Quote (specific carousel content) */
+.reference-quote {
+  margin: 0 0 var(--sp-md) 0;
+  font-style: italic;
+  font-size: var(--fs-md);
+  line-height: 1.6;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reference-quote p {
+  margin-bottom: var(--sp-sm);
+}
+
+.reference-quote p:last-child {
+  margin-bottom: 0;
+}
+
+.reference-author {
+  font-style: normal;
+  font-size: var(--fs-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  align-items: center;
+}
+
+.reference-author strong {
+  color: var(--accent);
+}
+
+.reference-company a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.reference-company a:hover {
+  color: var(--accent);
+}
