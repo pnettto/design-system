@@ -58,6 +58,17 @@
   margin-top: 0;
 }
 
+.post-content ul {
+  margin-bottom: 2rem;
+}
+.post-content li {
+  margin-bottom: 1rem;
+}
+
+.post-content li ul {
+  margin-top: 1rem;
+}
+
 /* Quick Menu */
 .quick-menu {
   background: var(--bg-alt);
