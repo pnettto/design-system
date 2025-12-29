@@ -15,3 +15,6 @@ git add .
 
 # --force to allow running with a dirty tree :)
 npm version patch -m "Chore: bump version to %s - $1" --force
+
+# Pushes the current branch and all new tags to GitHub
+git push origin "$BRANCH" --tags
