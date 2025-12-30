@@ -4,8 +4,8 @@
 
 :root {
   /* Colors */
-  --bg: hsl(212 40% 15% / 1);
-  --bg-alt: hsl(212 40% 12% / 1);
+  --bg: hsl(212 0% 12% / 1);
+  --bg-alt: hsl(212 0% 20% / 1);
   --text: hsl(0 0% 74% / 1);
   --text-head: hsl(0 0% 82% / 1);
   --text-muted: hsl(0 0% 60% / 1);
@@ -17,7 +17,7 @@
   --font: "code saver", monospace;
   --fs-xs: 0.75rem;
   --fs-sm: 0.9rem;
-  --fs-base: 18px;
+  --fs-base: 16px;
   --fs-md: 1.1rem;
   --fs-lg: 1.3rem;
   --fs-xl: 1.8rem;
@@ -36,8 +36,8 @@
 
   /* Layout */
   --container-w: min(90vw, 1600px);
-  --container-narrow: 1000px;
-  --container-large: 1920px;
+  --container-narrow: 900px;
+  --container-large: 1300px;
   --inner-max-w: 900px;
 
   /* Borders */
@@ -54,7 +54,7 @@
 [data-theme="light"] {
   --bg: hsl(33 15% 95% / 1);
   --bg-alt: hsl(33 15% 88% / 1);
-  --accent: hsl(212 95% 25% / 1);
+  --accent: hsl(41 35% 50% / 1);
   --text: hsl(0 0% 15% / 1);
   --text-head: #111111;
   --text-muted: #333333;
@@ -96,72 +96,4 @@
   --transition-effect: var(--ease);
   --leading-normal: 1.6;
   --leading-tight: 1.2;
-}
-
-/* Responsive Typography Scale */
-@media (min-width: 1000px) {
-  :root { --fs-base: 16px; }
-}
-
-@media (min-width: 1512px) {
-  :root { --fs-base: 18px; }
-}
-
-@media (min-width: 1680px) {
-  :root {
-    --fs-base: 20px;
-    --container-narrow: 1100px;
-  }
-}
-
-@media (min-width: 1890px) {
-  :root {
-    --fs-base: 22px;
-    --container-narrow: 1200px;
-  }
-}
-
-@media (min-width: 2016px) {
-  :root {
-    --fs-base: 24px;
-    --container-narrow: 1300px;
-  }
-}
-
-@media (min-width: 2228px) {
-  :root {
-    --fs-base: 26px;
-    --container-narrow: 1400px;
-    --inner-max-w: 1200px;
-  }
-}
-
-@media (min-width: 3024px) {
-  :root {
-    --fs-base: 32px;
-    --container-w: min(90vw, 2000px);
-    --container-narrow: 1800px;
-    --container-large: 2500px;
-    --inner-max-w: 1500px;
-  }
-}
-
-@media (min-width: 4536px) {
-  :root {
-    --fs-base: 48px;
-    --container-w: min(90vw, 3000px);
-    --container-narrow: 2700px;
-    --container-large: 3500px;
-    --inner-max-w: 2000px;
-  }
-}
-
-@media (min-width: 6048px) {
-  :root {
-    --fs-base: 65px;
-    --container-w: min(90vw, 4500px);
-    --container-narrow: 3600px;
-    --container-large: 5000px;
-    --inner-max-w: 2500px;
-  }
 }
