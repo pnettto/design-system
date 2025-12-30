@@ -2,7 +2,7 @@
 
 /* src/css/tokens.css */
 :root {
-  --bg: hsl(212 35% 6% / 1);
+  --bg: hsl(212 40% 15% / 1);
   --bg-alt: hsl(212 40% 12% / 1);
   --text: hsl(0 0% 74% / 1);
   --text-head: hsl(0 0% 82% / 1);
@@ -38,8 +38,8 @@
   --dur: 0.2s;
 }
 [data-theme=light] {
-  --bg: hsl(33 15% 75% / 1);
-  --bg-alt: hsl(33 15% 70% / 1);
+  --bg: hsl(33 15% 95% / 1);
+  --bg-alt: hsl(33 15% 88% / 1);
   --accent: hsl(212 95% 25% / 1);
   --text: hsl(0 0% 15% / 1);
   --text-head: #111111;
