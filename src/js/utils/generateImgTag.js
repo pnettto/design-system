@@ -47,8 +47,6 @@ export function generateImgTag(imageDataRaw, options = {}) {
 
     const pictureStyle = `width: 100%; height: 100%;`;
 
-    console.log("hey");
-
     return `
         <div style="${wrapperStyle}" class="optimized-image-tag">
             <picture style="${pictureStyle}">
