@@ -103,7 +103,7 @@ picture {
 /* iframes, used mostly for demos */
 iframe {
   width: 100%; 
-  aspect-ratio: 4 / 3; 
+  aspect-ratio: 3 / 4; 
   zoom: 50%; 
   margin-bottom: 2rem;
   border: 0;

@@ -3,9 +3,20 @@
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+    const containerEl = document.querySelector(".container");
+
     setTimeout(() => {
-        document.querySelector(".container")?.classList.add("is-loaded");
+        containerEl?.classList.add("is-loaded");
     }, 200);
+
+    if (window.WebSocket) {
+        const ws = new WebSocket("ws://localhost:8080");
+        ws.onopen = () => {
+            ws.onmessage = () => {
+                containerEl.classList.add("is-loaded");
+            };
+        };
+    }
 
     const observer = new IntersectionObserver(
         (entries) => {
