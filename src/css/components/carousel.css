@@ -11,16 +11,16 @@
 @media (min-width: 900px) {
   .carousel-wrapper {
     width: calc(100vw - 2 * var(--sp-lg));
-    max-width: 1500px;
+    max-width: 1300px;
     margin-left: 50%;
     transform: translateX(-50%);
   }
 }
 
 .carousel-container {
-  width: 100%;
+  border-radius: 10px;
   overflow: hidden;
-  padding: var(--sp-md) 0;
+  margin: var(--sp-md) 0;
 }
 
 .carousel-track {
