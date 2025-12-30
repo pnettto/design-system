@@ -6,10 +6,10 @@
   /* Colors */
   --bg: hsl(212 0% 12% / 1);
   --bg-alt: hsl(212 0% 20% / 1);
-  --text: hsl(0 0% 74% / 1);
-  --text-head: hsl(0 0% 82% / 1);
-  --text-muted: hsl(0 0% 60% / 1);
-  --accent: hsl(41 35% 50% / 1);
+  --text: hsl(0 0% 90% / 1);
+  --text-head: hsl(0 0% 90% / 1);
+  --text-muted: hsl(0 0% 90% / 1);
+  --accent: hsl(41 38% 56% / 1);
   --highlight: #efefef;
   --border: #333333;
 
