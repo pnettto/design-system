@@ -31,7 +31,7 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: hsl(0 0% 23% / 1);
+  background: hsl(0 0% 15% / 1);
 }
 
 :not(pre) > code[class*="language-"] {
@@ -118,7 +118,7 @@ pre[class*="language-"] {
 
 .code-container {
   position: relative;
-  background: hsl(0 0% 23% / 1);
+  background: hsl(0 0% 15% / 1);
   color: #d4d4d4;
   border-radius: 8px;
   overflow: hidden;
