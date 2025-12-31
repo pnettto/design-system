@@ -31,13 +31,14 @@ export function generateImgTag(imageDataRaw, options = {}) {
     }
 
     const imgTag = `
-        <img 
+
+    <img 
         src="${fallbackUrl}"
         alt=""
         class="fade-in ${className}"
-        ${sizes ? ` sizes="${sizes}"` : ""}
         loading="lazy"
         decoding="async"
+        sizes="${sizes || ""}"
         style="width: 100%; height: 100%; object-fit: ${objectFit};"
         />
     `.trim();
