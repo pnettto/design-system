@@ -106,7 +106,7 @@
 
 @media (min-width: 900px) {
   .carousel-card {
-    flex: 0 0 400px;
+    flex: 0 0 26.7%;
     scroll-snap-align: start;
   }
 }
