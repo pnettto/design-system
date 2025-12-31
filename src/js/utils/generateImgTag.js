@@ -23,7 +23,8 @@ export function generateImgTag(imageDataRaw, options = {}) {
         }">`;
     }).join("\n");
 
-    const fallback = imageDataRaw.images.jpeg.at(-1);
+    const imageKeys = Object.keys(imageDataRaw.images);
+    const fallback = imageDataRaw.images[imageKeys[0]].at(-1);
     const fallbackUrl = fallback.url;
 
     if (!aspectRatio) {

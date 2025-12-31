@@ -102,3 +102,13 @@ Enforced at .eleventy (widenPostMedia) */
     margin-bottom: 1.5rem;
   }
 }
+
+/* A generic caption */
+.caption {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  font-style: italic;
+  max-width: 900px;
+  margin: 1.5rem auto;
+  text-align: center;
+}

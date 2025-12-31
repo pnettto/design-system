@@ -23,15 +23,6 @@
   margin-bottom: 1.5rem;
 }
 
-.video-wrapper .caption {
-  font-size: var(--fs-sm);
-  color: var(--text-muted);
-  font-style: italic;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
-
 @media (min-width: 1200px) {
   .video-wrapper {
     width: calc(90vw - 2 * var(--sp-lg));
