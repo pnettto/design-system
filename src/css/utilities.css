@@ -91,11 +91,14 @@
 
 
 /* Allows children to become a little 
-larger than the container (nice on large screens) */
-.widen {
-  width: calc(90vw - 2 * var(--sp-lg));
-  max-width: 70rem;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  margin-bottom: 1.5rem;
+wider on a narrow container  (nice on large screens)
+Enforced at .eleventy (widenPostMedia) */
+@media (min-width: 1000px) {
+  .widen {
+    width: calc(90vw - 2 * var(--sp-lg)) !important;
+    max-width: 70rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 1.5rem;
+  }
 }

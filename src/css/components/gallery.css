@@ -90,4 +90,7 @@
   font-size: var(--fs-sm);
   color: var(--text-muted);
   font-style: italic;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
 }
