@@ -12,17 +12,13 @@
   margin-bottom: var(--sp-lg);
 }
 
-.sticky-tags > :first-child {
-  margin: 0 auto;
-}
-
-.tags-list {
+.sticky-tags .tags-list {
   display: flex;
   flex-wrap: wrap;
   gap: var(--sp-xs);
   list-style: none;
+  margin: 0 auto;
   padding: var(--sp-md) var(--sp-sm);
-  margin: 0;
 }
 
 .badge {
