@@ -2,22 +2,12 @@
    BADGE - Tag & Badge Components
    ========================================================================== */
 
-.tags-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--sp-xs);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
 .sticky-tags {
   position: sticky;
   top: 0;
   z-index: 100;
   width: 100vw;
   margin-inline: calc(50% - 50vw);
-  padding: var(--sp-md) var(--sp-sm);
   background-color: var(--bg);
   margin-bottom: var(--sp-lg);
 }
@@ -26,6 +16,14 @@
   margin: 0 auto;
 }
 
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-xs);
+  list-style: none;
+  padding: var(--sp-md) var(--sp-sm);
+  margin: 0;
+}
 
 .badge {
   font-size: var(--fs-xs);
