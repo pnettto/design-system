@@ -36,11 +36,16 @@ jobs:
           VERSION="${{ steps.version.outputs.version }}"
           BUCKET="${{ secrets.CLOUDFLARE_BUCKET_NAME }}"
 
-          # Upload to versioned path
-          wrangler r2 object copy dist/ "$BUCKET/$VERSION/" --recursive --remote
+          # Upload all files from dist/ to versioned path
+          find dist -type f | while read file; do
+            relative_path="${file#dist/}"
+            wrangler r2 object put "$BUCKET/$VERSION/$relative_path" --file "$file"
+          done
 
-          # If not a tag, the 'latest' upload is already covered by the logic above.
-          # If this is a tag and you ALSO want to update 'latest':
+          # Also upload to 'latest' if this is a tag
           if [[ "${{ steps.version.outputs.is_tag }}" == "true" ]]; then
-            wrangler r2 object copy dist/ "$BUCKET/latest/" --recursive --remote
+            find dist -type f | while read file; do
+              relative_path="${file#dist/}"
+              wrangler r2 object put "$BUCKET/latest/$relative_path" --file "$file"
+            done
           fi
