@@ -5,6 +5,10 @@
 @import url("https://use.typekit.net/pmu6sig.css");
 
 /* Reset */
+* {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 7rem;
