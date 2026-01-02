@@ -35,13 +35,14 @@ jobs:
         run: |
           VERSION="${{ steps.version.outputs.version }}"
           BUCKET="${{ secrets.CLOUDFLARE_BUCKET_NAME }}"
+          PROJECT="ui-kit"
 
           # Upload css and js directories to versioned path
           for dir in css js; do
             if [ -d "dist/$dir" ]; then
               find "dist/$dir" -type f | while read file; do
                 relative_path="${file#dist/}"
-                wrangler r2 object put "$BUCKET/$VERSION/$relative_path" --file "$file" --remote
+                wrangler r2 object put "$BUCKET/$PROJECT/$VERSION/$relative_path" --file "$file" --remote
               done
             fi
           done
@@ -52,7 +53,7 @@ jobs:
               if [ -d "dist/$dir" ]; then
                 find "dist/$dir" -type f | while read file; do
                   relative_path="${file#dist/}"
-                  wrangler r2 object put "$BUCKET/latest/$relative_path" --file "$file" --remote
+                  wrangler r2 object put "$BUCKET/$PROJECT/latest/$relative_path" --file "$file" --remote
                 done
               fi
             done
