@@ -36,20 +36,11 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           R2_BUCKET_NAME: ${{ secrets.CLOUDFLARE_BUCKET_NAME }}
         run: |
-          # Upload with version prefix
-          wrangler r2 object put $R2_BUCKET_NAME/${{ steps.version.outputs.version }}/styles.css \
-            --file=dist/styles.css \
-            --content-type=text/css
+          VERSION="${{ steps.version.outputs.version }}"
 
-          wrangler r2 object put $R2_BUCKET_NAME/${{ steps.version.outputs.version }}/script.js \
-            --file=dist/script.js \
-            --content-type=application/javascript
-
-          # Upload all files from dist
           for file in dist/*; do
             filename=$(basename "$file")
-            wrangler r2 object put $R2_BUCKET_NAME/${{ steps.version.outputs.version }}/$filename \
-              --file="$file"
+            wrangler r2 object put "${R2_BUCKET_NAME}/${VERSION}/${filename}" --file="$file"
           done
 
       - name: Upload to R2 (latest)
@@ -59,9 +50,7 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           R2_BUCKET_NAME: ${{ secrets.CLOUDFLARE_BUCKET_NAME }}
         run: |
-          # Also upload to root for latest
           for file in dist/*; do
             filename=$(basename "$file")
-            wrangler r2 object put $R2_BUCKET_NAME/$filename \
-              --file="$file"
+            wrangler r2 object put "${R2_BUCKET_NAME}/latest/${filename}" --file="$file"
           done
