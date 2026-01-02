@@ -36,16 +36,24 @@ jobs:
           VERSION="${{ steps.version.outputs.version }}"
           BUCKET="${{ secrets.CLOUDFLARE_BUCKET_NAME }}"
 
-          # Upload all files from dist/ to versioned path
-          find dist -type f | while read file; do
-            relative_path="${file#dist/}"
-            wrangler r2 object put "$BUCKET/$VERSION/$relative_path" --file "$file" --remote
+          # Upload css and js directories to versioned path
+          for dir in css js; do
+            if [ -d "dist/$dir" ]; then
+              find "dist/$dir" -type f | while read file; do
+                relative_path="${file#dist/}"
+                wrangler r2 object put "$BUCKET/$VERSION/$relative_path" --file "$file" --remote
+              done
+            fi
           done
 
           # Also upload to 'latest' if this is a tag
           if [[ "${{ steps.version.outputs.is_tag }}" == "true" ]]; then
-            find dist -type f | while read file; do
-              relative_path="${file#dist/}"
-              wrangler r2 object put "$BUCKET/latest/$relative_path" --file "$file" --remote
+            for dir in css js; do
+              if [ -d "dist/$dir" ]; then
+                find "dist/$dir" -type f | while read file; do
+                  relative_path="${file#dist/}"
+                  wrangler r2 object put "$BUCKET/latest/$relative_path" --file "$file" --remote
+                done
+              fi
             done
           fi
