@@ -18,41 +18,29 @@ jobs:
         id: version
         run: |
           if [[ $GITHUB_REF == refs/tags/* ]]; then
-            VERSION=${GITHUB_REF#refs/tags/}
-            echo "version=$VERSION" >> $GITHUB_OUTPUT
+            echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
             echo "is_tag=true" >> $GITHUB_OUTPUT
           else
-            VERSION="latest"
-            echo "version=$VERSION" >> $GITHUB_OUTPUT
+            echo "version=latest" >> $GITHUB_OUTPUT
             echo "is_tag=false" >> $GITHUB_OUTPUT
           fi
 
       - name: Install Wrangler
         run: npm install -g wrangler
 
-      - name: Upload to R2 (versioned)
+      - name: Upload to R2
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
-          R2_BUCKET_NAME: ${{ secrets.CLOUDFLARE_BUCKET_NAME }}
         run: |
           VERSION="${{ steps.version.outputs.version }}"
+          BUCKET="${{ secrets.CLOUDFLARE_BUCKET_NAME }}"
 
-          for file in dist/*; do
-            filename=$(basename "$file")
-            wrangler r2 object put "$R2_BUCKET_NAME/$VERSION/$filename" --file="$file" --remote
-          done
+          # Upload to versioned path
+          wrangler r2 object copy dist/ "$BUCKET/$VERSION/" --recursive --remote
 
-      - name: Upload to R2 (latest)
-        if: steps.version.outputs.is_tag == 'false'
-        env:
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
-          R2_BUCKET_NAME: ${{ secrets.CLOUDFLARE_BUCKET_NAME }}
-        run: |
-          for file in dist/*; do
-            filename=$(basename "$file")
-            wrangler r2 object put "$R2_BUCKET_NAME/latest/$filename" --file="$file" --remote
-          done
+          # If not a tag, the 'latest' upload is already covered by the logic above.
+          # If this is a tag and you ALSO want to update 'latest':
+          if [[ "${{ steps.version.outputs.is_tag }}" == "true" ]]; then
+            wrangler r2 object copy dist/ "$BUCKET/latest/" --recursive --remote
+          fi
