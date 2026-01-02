@@ -40,7 +40,7 @@ jobs:
 
           for file in dist/*; do
             filename=$(basename "$file")
-            wrangler r2 object put "$R2_BUCKET_NAME/$VERSION/$filename" --file="$file --remote"
+            wrangler r2 object put "$R2_BUCKET_NAME/$VERSION/$filename" --file="$file" --remote
           done
 
       - name: Upload to R2 (latest)
@@ -52,5 +52,5 @@ jobs:
         run: |
           for file in dist/*; do
             filename=$(basename "$file")
-            wrangler r2 object put "$R2_BUCKET_NAME/latest/$filename" --file="$file --remote"
+            wrangler r2 object put "$R2_BUCKET_NAME/latest/$filename" --file="$file" --remote
           done
