@@ -39,13 +39,13 @@ jobs:
           # Upload all files from dist/ to versioned path
           find dist -type f | while read file; do
             relative_path="${file#dist/}"
-            wrangler r2 object put "$BUCKET/$VERSION/$relative_path" --file "$file"
+            wrangler r2 object put "$BUCKET/$VERSION/$relative_path" --file "$file" --remote
           done
 
           # Also upload to 'latest' if this is a tag
           if [[ "${{ steps.version.outputs.is_tag }}" == "true" ]]; then
             find dist -type f | while read file; do
               relative_path="${file#dist/}"
-              wrangler r2 object put "$BUCKET/latest/$relative_path" --file "$file"
+              wrangler r2 object put "$BUCKET/latest/$relative_path" --file "$file" --remote
             done
           fi
