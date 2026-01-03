@@ -60,13 +60,25 @@
 
 .post-content ul {
   margin-bottom: 2rem;
+  padding-left: 0.5rem;
 }
+
+@media (min-width: 600px) {
+  .post-content ul {
+    padding-left: 1.5rem;
+  }
+}
+
 .post-content li {
   margin-bottom: 1rem;
 }
 
 .post-content li ul {
   margin-top: 1rem;
+}
+
+.post-content li ul li {
+  margin-bottom: 0.5rem;
 }
 
 /* Quick Menu */
