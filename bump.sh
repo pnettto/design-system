@@ -13,6 +13,9 @@ git checkout main
 # Stage all changes
 git add .
 
+# Commit changes with the description
+git commit -m "$1"
+
 # Using npm version
 # npm version patch - Bug fixes and backward-compatible changes. (1.0.1)
 # npm version minor - New features, backward-compatible. (1.1.0)
@@ -21,5 +24,13 @@ git add .
 # --force to allow running with a dirty tree :)
 npm version patch -m "Chore: bump version to %s - $1" --force
 
-# Pushes the current branch and all new tags to GitHub
-git push origin HEAD --tags
+# Get the new version tag
+NEW_TAG=$(git describe --tags --abbrev=0)
+
+# Push the commit first
+git push origin main
+
+# Push the tag separately to trigger the workflow
+git push origin "$NEW_TAG"
+
+echo "✓ Pushed version $NEW_TAG to trigger deployment"

@@ -1,0 +1,60 @@
+name: Deploy to Cloudflare R2
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Determine version
+        id: version
+        run: |
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+            echo "is_tag=true" >> $GITHUB_OUTPUT
+          else
+            echo "version=latest" >> $GITHUB_OUTPUT
+            echo "is_tag=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Install Wrangler
+        run: npm install -g wrangler
+
+      - name: Upload to R2
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          BUCKET="${{ secrets.CLOUDFLARE_BUCKET_NAME }}"
+          PROJECT="ui-kit"
+
+          # Upload css and js directories to versioned path
+          for dir in css js; do
+            if [ -d "dist/$dir" ]; then
+              find "dist/$dir" -type f | while read file; do
+                relative_path="${file#dist/}"
+                wrangler r2 object put "$BUCKET/$PROJECT/$VERSION/$relative_path" --file "$file" --remote
+              done
+            fi
+          done
+
+          # Also upload to 'latest' if this is a tag
+          if [[ "${{ steps.version.outputs.is_tag }}" == "true" ]]; then
+            for dir in css js; do
+              if [ -d "dist/$dir" ]; then
+                find "dist/$dir" -type f | while read file; do
+                  relative_path="${file#dist/}"
+                  wrangler r2 object put "$BUCKET/$PROJECT/latest/$relative_path" --file "$file" --remote
+                done
+              fi
+            done
+          fi
