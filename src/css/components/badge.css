@@ -39,8 +39,14 @@
   border-color: var(--accent);
 }
 
+.tags-list.mini-tags {
+  display: flex;
+  gap: 0.25rem;
+}
+
 .tags-list.mini-tags .badge {
   font-size: var(--fs-xs);
-  padding: 0.1em 0.5em;
-  opacity: 0.8;
+  padding: .25em .5rem;
+  opacity: .8;
+  text-align: center;
 }
