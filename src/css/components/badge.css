@@ -24,7 +24,7 @@
 .badge {
   font-size: var(--fs-xs);
   padding: 0.25em 0.7em;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius);
   background-color: var(--bg-alt);
   color: var(--text-head);
   border: none;
@@ -46,7 +46,7 @@
 
 .tags-list.mini-tags .badge {
   font-size: var(--fs-xs);
-  padding: .25em .5rem;
+  padding: .1em .4rem;
   opacity: .8;
   text-align: center;
 }
