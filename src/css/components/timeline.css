@@ -17,12 +17,12 @@
   background-color: var(--border);
 }
 
-.timeline-item {
+.timeline .item {
   margin-bottom: var(--sp-xl);
   position: relative;
 }
 
-.timeline-item::before {
+.timeline .item::before {
   content: "";
   position: absolute;
   left: -2.6rem;
@@ -34,7 +34,7 @@
   border-radius: 50%;
 }
 
-.timeline-year {
+.timeline .year {
   font-family: var(--font);
   color: var(--accent);
   font-weight: bold;
