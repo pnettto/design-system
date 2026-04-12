@@ -9,15 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
         containerEl?.classList.add("is-loaded");
     }, 200);
 
-    if (window.WebSocket) {
-        const ws = new WebSocket("ws://localhost:8080");
-        ws.onopen = () => {
-            ws.onmessage = () => {
-                containerEl.classList.add("is-loaded");
-            };
-        };
-    }
-
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
