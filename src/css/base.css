@@ -2,8 +2,6 @@
    BASE - Reset & Typography
    ========================================================================== */
 
-@import url("https://use.typekit.net/pmu6sig.css");
-
 /* Reset */
 * {
   box-sizing: border-box;
@@ -11,9 +9,12 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 7rem;
   font-size: var(--fs-base);
   font-weight: 400;
+}
+
+body:has(.sticky-tags) {
+  scroll-padding-top: 7rem;
 }
 
 body {
@@ -37,22 +38,49 @@ select {
   font-weight: 400;
 }
 
+/* Focus */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+  transition: outline-offset 160ms var(--ease);
+}
+
 /* Links */
 a {
   color: var(--accent);
-  text-decoration: none;
-  border-bottom: 1px solid var(--border);
-  transition: all var(--dur) ease;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklch, var(--border) 70%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color 200ms var(--ease), text-decoration-color 200ms var(--ease);
 }
 
 a.anchor {
   height: 0;
-  border: 0;
+  text-decoration: none;
 }
 
 a:hover {
   color: var(--highlight);
-  border-bottom-color: var(--highlight);
+  text-decoration-color: var(--highlight);
+}
+
+/* Theme transitions (gated by JS after first paint) */
+html.theme-ready,
+html.theme-ready body {
+  transition: background-color 220ms var(--ease), color 220ms var(--ease);
+}
+html.theme-ready * {
+  transition: background-color 220ms var(--ease), border-color 220ms var(--ease), color 220ms var(--ease);
+}
+@media (prefers-reduced-motion: reduce) {
+  html.theme-ready,
+  html.theme-ready body,
+  html.theme-ready * {
+    transition: none;
+  }
 }
 
 /* Dividers */
@@ -105,17 +133,45 @@ picture {
 }
 
 /* iframes, used mostly for demos */
+.iframe-wrap {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 600px) {
+  .iframe-wrap {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+.iframe-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 200%;
+  height: 200%;
+  transform: scale(0.5);
+  transform-origin: 0 0;
+  border: 0;
+}
+
 iframe {
-  width: 100%; 
-  aspect-ratio: 3 / 4; 
-  zoom: 50%; 
+  width: 100%;
   margin-bottom: 2rem;
   border: 0;
   border-radius: var(--radius-lg);
 }
 
-@media (min-width: 600px) {
-  iframe {
-    aspect-ratio: 16 / 9; 
+/* Reduced-motion guard */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -152,4 +152,5 @@
 
 .reference-company a:hover {
   color: var(--accent);
+  text-decoration: none;
 }

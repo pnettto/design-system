@@ -15,8 +15,10 @@
 a.project-card {
   color: inherit;
   text-decoration: none;
-  border-bottom: none;
-  transition: transform var(--dur) ease-out;
+}
+
+a.project-card:hover .project-card-link {
+  color: var(--highlight);
 }
 
 .project-card-image-wrapper {
@@ -112,13 +114,11 @@ a.project-card {
 .album-card {
   display: block;
   max-width: 30rem;
-  border: none;
   text-decoration: none;
   border-radius: var(--radius);
   overflow: hidden;
   break-inside: auto;
   margin-bottom: var(--sp-lg);
-  transition: transform var(--dur) ease-out;
 }
 
 @media (min-width: 750px) {
@@ -150,7 +150,6 @@ a.project-card {
   object-fit: cover;
   display: block;
   border-radius: var(--radius);
-  transition: transform 0.5s ease;
 }
 
 .album-info h4 {

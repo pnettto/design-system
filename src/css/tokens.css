@@ -7,14 +7,14 @@
   --bg: hsl(212 0% 11% / 1);
   --bg-alt: hsl(212 0% 20% / 1);
   --text: hsl(0 0% 90% / 1);
-  --text-head: hsl(0 0% 90% / 1);
-  --text-muted: hsl(0 0% 90% / 1);
+  --text-head: hsl(0 0% 98% / 1);
+  --text-muted: hsl(0 0% 64% / 1);
   --accent: hsl(41 38% 56% / 1);
   --highlight: #efefef;
   --border: #333333;
 
   /* Typography */
-  --font: "code saver", monospace;
+  --font: "code saver", ui-monospace, "SF Mono", Menlo, monospace;
   --fs-xs: 0.75rem;
   --fs-sm: 0.9rem;
   --fs-base: 16px;
@@ -46,8 +46,13 @@
   --radius-full: 9999px;
 
   /* Motion */
-  --ease: cubic-bezier(0.4, 0, 0.2, 1);
-  --dur: 0.2s;
+  --ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 160ms;
+  --dur: 200ms;
+  --dur-slow: 280ms;
+  --dur-entrance: 480ms;
 }
 
 /* Light Theme */
@@ -56,8 +61,8 @@
   --bg-alt: hsl(33 15% 88% / 1);
   --accent: hsl(41 35% 50% / 1);
   --text: hsl(0 0% 15% / 1);
-  --text-head: #111111;
-  --text-muted: #333333;
+  --text-head: #0a0a0a;
+  --text-muted: #555555;
   --border: #333333;
   --highlight: #000000;
 }

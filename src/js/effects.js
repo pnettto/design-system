@@ -3,12 +3,6 @@
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-    const containerEl = document.querySelector(".container");
-
-    setTimeout(() => {
-        containerEl?.classList.add("is-loaded");
-    }, 200);
-
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {

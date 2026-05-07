@@ -39,6 +39,16 @@ export function initGallery() {
         history.replaceState(null, null, " ");
     }
 
+    function preloadNeighbors(index) {
+        [index + 1, index - 1].forEach((i) => {
+            const wrapped = (i + images.length) % images.length;
+            const photo = images[wrapped];
+            if (!photo) return;
+            const im = new Image();
+            im.src = photo.src;
+        });
+    }
+
     function updateLightboxImage(index) {
         const photo = images[index];
 
@@ -58,6 +68,8 @@ export function initGallery() {
             const img = lightboxContent.querySelector("img");
             img.onload = () => img.classList.add("is-loaded");
         }
+
+        preloadNeighbors(index);
     }
 
     function openLightbox(index) {

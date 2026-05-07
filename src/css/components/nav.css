@@ -17,7 +17,7 @@
   font-weight: 700;
   color: var(--text-head);
   font-size: var(--fs-md);
-  border: none;
+  text-decoration: none;
   display: flex;
   align-items: center;
 }
@@ -54,7 +54,7 @@ nav ul {
 
 nav a {
   color: var(--text);
-  border: none;
+  text-decoration: none;
   opacity: 0.8;
 }
 
@@ -65,7 +65,9 @@ nav a[aria-current="page"] {
 }
 
 [data-theme="light"] nav a[aria-current="page"] {
-  border-bottom: 1px solid var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.25em;
 }
 
 /* Page Nav Header */
@@ -98,9 +100,18 @@ nav a[aria-current="page"] {
   height: 2.5px;
   background: var(--text-head);
   border-radius: 10px;
-  transition: all 0.3s ease-in-out;
+  transition: transform 240ms var(--ease), opacity 180ms var(--ease);
   position: relative;
   transform-origin: center;
+}
+
+.burger-menu {
+  transition: transform 200ms var(--ease);
+}
+
+.burger-menu:active {
+  transform: scale(0.94);
+  transition: transform 60ms var(--ease);
 }
 
 /* Mobile Nav */
@@ -110,7 +121,7 @@ nav a[aria-current="page"] {
   }
 
   .main-nav {
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -124,10 +135,19 @@ nav a[aria-current="page"] {
     margin: 0;
     padding: 0;
     gap: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 240ms var(--ease), transform 240ms var(--ease), visibility 0s linear 240ms;
   }
 
   body.nav-open .main-nav {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+    transition: opacity 240ms var(--ease), transform 240ms var(--ease), visibility 0s;
   }
 
   .main-nav ul {
@@ -139,7 +159,23 @@ nav a[aria-current="page"] {
 
   .main-nav ul a {
     font-size: 1.25rem;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 220ms var(--ease), transform 220ms var(--ease);
   }
+
+  body.nav-open .main-nav ul a {
+    opacity: 1;
+    transform: none;
+  }
+
+  body.nav-open .main-nav ul li:nth-child(1) a { transition-delay: 40ms; }
+  body.nav-open .main-nav ul li:nth-child(2) a { transition-delay: 70ms; }
+  body.nav-open .main-nav ul li:nth-child(3) a { transition-delay: 100ms; }
+  body.nav-open .main-nav ul li:nth-child(4) a { transition-delay: 130ms; }
+  body.nav-open .main-nav ul li:nth-child(5) a { transition-delay: 160ms; }
+  body.nav-open .main-nav ul li:nth-child(6) a { transition-delay: 190ms; }
+  body.nav-open .main-nav ul li:nth-child(7) a { transition-delay: 220ms; }
 
   body.nav-open {
     overflow: hidden;

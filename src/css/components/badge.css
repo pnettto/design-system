@@ -29,7 +29,7 @@
   color: var(--text-head);
   border: none;
   text-decoration: none;
-  transition: all var(--dur);
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
   font-family: var(--font);
 }
 
