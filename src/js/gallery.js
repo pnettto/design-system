@@ -131,16 +131,34 @@ export function initGallery() {
         if (e.key === "ArrowLeft") showPrev();
     });
 
-    // Touch Navigation
-    lightbox.addEventListener("touchend", (e) => {
-        // Ignore if multiple fingers were on the screen (indicates a pinch/zoom)
-        if (e.changedTouches.length !== 1 || e.touches.length > 0) return;
+    // Touch Navigation — swipe horizontally to navigate
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchTracking = false;
+    const SWIPE_THRESHOLD = 40;
 
-        if (e.touches[0].clientX > document.body.clientWidth / 2) {
-            showNext();
-        } else {
-            showPrev();
+    lightbox.addEventListener("touchstart", (e) => {
+        if (e.touches.length !== 1) {
+            touchTracking = false;
+            return;
         }
+        touchTracking = true;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    lightbox.addEventListener("touchend", (e) => {
+        if (!touchTracking) return;
+        touchTracking = false;
+        if (e.changedTouches.length !== 1) return;
+
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        const dy = e.changedTouches[0].clientY - touchStartY;
+
+        if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) < Math.abs(dy)) return;
+
+        if (dx < 0) showNext();
+        else showPrev();
     });
 
     // Deep link from hash
