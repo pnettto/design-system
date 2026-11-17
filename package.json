@@ -1,6 +1,6 @@
 {
   "name": "@pnettto/design-system",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "description": "Pedro Netto's Design System",
   "type": "module",
   "scripts": {
