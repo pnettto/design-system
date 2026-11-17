@@ -1,0 +1,102 @@
+/* ==========================================================================
+   FOOTER - "Get in touch" block and link columns
+   ========================================================================== */
+
+.site-footer {
+  background: var(--deep);
+  color: var(--ink);
+  border-top: 1px solid var(--rule-soft);
+  padding: clamp(3.5rem, 7vw, 5rem) var(--gutter) 2.5rem;
+}
+
+.footer-inner {
+  max-width: calc(var(--container-w) - 2 * var(--gutter));
+  margin: 0 auto;
+}
+
+.site-footer a { color: var(--ink); text-decoration: none; }
+.site-footer a:hover { color: var(--gold); text-decoration: underline; }
+
+/* Get in touch: title + line on the left, email and socials on the right */
+.footer-hello {
+  display: grid;
+  gap: var(--sp-lg) var(--sp-3xl);
+  padding-bottom: var(--sp-xl);
+  border-bottom: 1px solid rgb(247 247 245 / 0.15);
+}
+
+@media (min-width: 900px) {
+  .footer-hello { grid-template-columns: minmax(0, 5fr) minmax(0, 8fr); }
+}
+
+.footer-hello h2 {
+  color: var(--text-head);
+  margin: 0 0 var(--sp-md);
+}
+
+.footer-hello p {
+  color: rgb(247 247 245 / 0.75);
+  max-width: 28rem;
+  margin: 0;
+}
+
+.footer-mail {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-self: start;
+  margin-top: 0.5rem;
+}
+
+.site-footer .footer-mail-address {
+  font-size: var(--fs-lg);
+  color: var(--gold);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklch, var(--gold) 45%, transparent);
+  text-underline-offset: 0.25em;
+}
+
+.footer-social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+}
+
+/* Link columns */
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-lg);
+  padding-top: var(--sp-xl);
+}
+
+@media (min-width: 800px) {
+  .footer-columns { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.footer-columns .eyebrow {
+  margin-bottom: 1rem;
+}
+
+.footer-columns ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+/* Optional bottom line (© / location) */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-sm);
+  margin-top: var(--sp-xl);
+  font-size: var(--fs-sm);
+  color: rgb(247 247 245 / 0.6);
+}

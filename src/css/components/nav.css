@@ -1,39 +1,51 @@
 /* ==========================================================================
-   NAV - Navigation Components
+   NAV - Site header, logo, main navigation
    ========================================================================== */
 
-/* Site Header */
+/* Site Header: logo on the left, navigation on the right */
 .site-header {
-  margin-bottom: var(--sp-xl);
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  flex-wrap: wrap;
   gap: var(--sp-md);
+  padding-block: 1.1rem;
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
 }
 
-/* Logo */
-.logo {
-  font-weight: 700;
-  color: var(--text-head);
-  font-size: var(--fs-md);
-  text-decoration: none;
+.header-nav {
   display: flex;
   align-items: center;
+  justify-self: end;
+}
+
+/* Logo: gold blob mark + name */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  justify-self: start;
+  color: var(--text-head);
+  font-size: var(--fs-md);
+  font-weight: 400;
+  text-decoration: none;
 }
 
 .logo-img {
-  height: 2.5rem;
+  height: 2.6rem;
   width: auto;
   display: block;
 }
 
-.logo-img .bg {
-  fill: var(--accent);
-}
+.logo-img .bg { fill: var(--gold); fill-opacity: 1; }
+.logo-img :nth-child(2) { fill: var(--paper); fill-opacity: 1; }
 
-.logo-img :nth-child(2) {
-  fill: var(--bg);
+.logo-name {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-head);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
 /* Main Nav */
@@ -45,7 +57,7 @@
 
 nav ul {
   display: flex;
-  gap: var(--sp-lg);
+  gap: 0.4rem 1.6rem;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -53,24 +65,21 @@ nav ul {
 }
 
 nav a {
-  color: var(--text);
-  text-decoration: none;
-  opacity: 0.8;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.35em;
+  transition: text-decoration-color var(--dur) var(--ease), color var(--dur) var(--ease);
 }
 
 nav a:hover,
 nav a[aria-current="page"] {
-  opacity: 1;
-  color: var(--accent);
+  color: var(--gold);
+  text-decoration-color: currentColor;
 }
 
-[data-theme="light"] nav a[aria-current="page"] {
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-underline-offset: 0.25em;
-}
-
-/* Page Nav Header */
+/* Page Nav Header (← all / next →) */
 .page-nav-header {
   display: flex;
   justify-content: space-between;
@@ -93,20 +102,17 @@ nav a[aria-current="page"] {
   padding: 0;
   z-index: 2000;
   margin-right: 0.5rem;
+  transition: transform 200ms var(--ease);
 }
 
 .burger-bar {
   width: 100%;
   height: 2.5px;
-  background: var(--text-head);
+  background: var(--ink);
   border-radius: 10px;
   transition: transform 240ms var(--ease), opacity 180ms var(--ease);
   position: relative;
   transform-origin: center;
-}
-
-.burger-menu {
-  transition: transform 200ms var(--ease);
 }
 
 .burger-menu:active {
@@ -114,7 +120,7 @@ nav a[aria-current="page"] {
   transition: transform 60ms var(--ease);
 }
 
-/* Mobile Nav */
+/* Mobile Nav: full-screen overlay */
 @media (max-width: 600px) {
   .burger-menu {
     display: flex;
@@ -130,7 +136,7 @@ nav a[aria-current="page"] {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: var(--bg);
+    background: var(--paper);
     z-index: 1500;
     margin: 0;
     padding: 0;
@@ -158,7 +164,7 @@ nav a[aria-current="page"] {
   }
 
   .main-nav ul a {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     opacity: 0;
     transform: translateY(6px);
     transition: opacity 220ms var(--ease), transform 220ms var(--ease);

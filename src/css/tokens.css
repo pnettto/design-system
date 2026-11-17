@@ -1,27 +1,44 @@
 /* ==========================================================================
-   TOKENS - Design System Variables
+   TOKENS - Design System Variables (v2, dark only)
    ========================================================================== */
 
 :root {
-  /* Colors */
-  --bg: hsl(212 0% 11% / 1);
-  --bg-alt: hsl(212 0% 20% / 1);
-  --text: hsl(0 0% 90% / 1);
-  --text-head: hsl(0 0% 98% / 1);
-  --text-muted: hsl(0 0% 64% / 1);
-  --accent: hsl(41 38% 56% / 1);
+  color-scheme: dark;
+
+  /* Palette */
+  --paper: hsl(0 0% 11%);          /* page background */
+  --surface: hsl(0 0% 14%);        /* bands, cards */
+  --surface-2: hsl(0 0% 17%);      /* card hover */
+  --deep: hsl(0 0% 8%);            /* footer, dark bands */
+  --ink: hsl(0 0% 90%);            /* body text */
+  --ink-2: hsl(0 0% 78%);          /* secondary text */
+  --ink-muted: hsl(0 0% 64%);      /* captions, meta */
+  --rule: hsl(0 0% 100% / 0.14);   /* hairlines */
+  --rule-soft: hsl(0 0% 100% / 0.08);
+  --gold: hsl(41 38% 56%);         /* the accent */
+  --gold-soft: hsl(41 38% 56% / 0.16);
+
+  /* Semantic roles */
+  --bg: var(--paper);
+  --bg-alt: hsl(0 0% 20%);
+  --text: var(--ink);
+  --text-head: hsl(0 0% 98%);
+  --text-muted: var(--ink-muted);
+  --accent: var(--gold);
   --highlight: #efefef;
   --border: #333333;
 
   /* Typography */
   --font: "code saver", ui-monospace, "SF Mono", Menlo, monospace;
-  --fs-xs: 0.75rem;
-  --fs-sm: 0.9rem;
+  --font-serif: var(--font);
+  --font-mono: var(--font);
   --fs-base: 16px;
-  --fs-md: 1.1rem;
-  --fs-lg: 1.3rem;
-  --fs-xl: 1.8rem;
-  --fs-2xl: 2.5rem;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.88rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: clamp(1.6rem, 1.3rem + 1.2vw, 2.3rem);
+  --fs-2xl: clamp(2rem, 1.5rem + 2vw, 3rem);
 
   /* Spacing */
   --sp-xs: 0.5rem;
@@ -35,10 +52,11 @@
   --sp-5xl: 8rem;
 
   /* Layout */
-  --container-w: min(90vw, 1600px);
-  --container-narrow: 900px;
+  --container-w: 1440px;
+  --container-narrow: 860px;
   --container-large: 1300px;
   --inner-max-w: 900px;
+  --gutter: clamp(1.25rem, 5vw, 4.5rem);
 
   /* Borders */
   --radius: 6px;
@@ -55,19 +73,7 @@
   --dur-entrance: 480ms;
 }
 
-/* Light Theme */
-[data-theme="light"] {
-  --bg: hsl(33 15% 95% / 1);
-  --bg-alt: hsl(33 15% 88% / 1);
-  --accent: hsl(41 35% 50% / 1);
-  --text: hsl(0 0% 15% / 1);
-  --text-head: #0a0a0a;
-  --text-muted: #555555;
-  --border: #333333;
-  --highlight: #000000;
-}
-
-/* Legacy Variable Aliases (for backward compatibility) */
+/* Legacy aliases, kept so v1 markup and styles keep working */
 :root {
   --bg-color: var(--bg);
   --bg-secondary: var(--bg-alt);

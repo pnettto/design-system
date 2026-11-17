@@ -8,7 +8,7 @@
   z-index: 100;
   width: 100vw;
   margin-inline: calc(50% - 50vw);
-  background-color: var(--bg);
+  background-color: var(--paper);
   margin-bottom: var(--sp-lg);
 }
 
@@ -22,21 +22,22 @@
 }
 
 .badge {
-  font-size: var(--fs-xs);
-  padding: 0.25em 0.7em;
-  border-radius: var(--radius);
-  background-color: var(--bg-alt);
-  color: var(--text-head);
-  border: none;
-  text-decoration: none;
-  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
   font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 400;
+  padding: 0.3em 0.8em;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--rule);
+  text-decoration: none;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
 }
 
 .badge:hover {
-  background-color: var(--accent);
-  color: var(--bg);
-  border-color: var(--accent);
+  background: var(--gold);
+  color: var(--paper);
+  border-color: var(--gold);
 }
 
 .tags-list {
@@ -45,8 +46,7 @@
 }
 
 .tags-list.mini-tags .badge {
-  font-size: var(--fs-xs);
-  padding: .1em .4rem;
-  opacity: .8;
+  font-size: 0.72rem;
+  padding: 0.15em 0.7em;
   text-align: center;
 }

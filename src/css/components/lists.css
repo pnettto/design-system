@@ -2,15 +2,16 @@
    LISTS - Post List & Quick Menu
    ========================================================================== */
 
-/* Post List */
+/* Post List: ruled rows */
 .post-list {
   list-style: none;
   padding: 0;
+  border-top: 1px solid var(--rule);
 }
 
 .post-item {
-  border-bottom: 1px solid var(--border);
-  padding: var(--sp-md) 0;
+  border-bottom: 1px solid var(--rule);
+  padding: 1.4rem 0;
 }
 
 .post-item-header {
@@ -18,7 +19,7 @@
   flex-direction: column;
   gap: 1rem;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: baseline;
 }
 
 @media (min-width: 600px) {
@@ -33,6 +34,19 @@
   font-size: var(--fs-lg);
 }
 
+.post-item a.post-title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  color: var(--text-head);
+}
+
+.post-item a.post-title:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+}
+
 .post-main {
   display: flex;
   flex-direction: column;
@@ -41,11 +55,20 @@
 
 .post-meta {
   font-size: var(--fs-sm);
-  color: var(--text-muted);
+  color: var(--ink-muted);
+  white-space: nowrap;
   margin-bottom: 1rem;
 }
 
+/* Long-form content */
+article > p:first-child a,
+.page-nav-header a {
+  font-weight: 500;
+  text-decoration: none;
+}
+
 .post-content {
+  font-size: 1.05rem;
   margin-bottom: 2rem;
 }
 
@@ -53,6 +76,9 @@
 .post-content h3 {
   margin-top: var(--sp-2xl);
 }
+
+.post-content h2 { font-size: 1.6rem; }
+.post-content h3 { font-size: 1.25rem; }
 
 .post-content > :first-child {
   margin-top: 0;
@@ -79,6 +105,31 @@
 
 .post-content li ul li {
   margin-bottom: 0.5rem;
+}
+
+.post-content blockquote {
+  margin: 2rem 0;
+  padding: 0 0 0 1.5rem;
+  border-left: 2px solid var(--gold);
+  color: var(--ink-2);
+}
+
+.post-content img,
+.post-content video {
+  border-radius: var(--radius-lg);
+}
+
+/* Embedded pages: give iframes a real height (the default is 150px) */
+.post-content iframe {
+  display: block;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--rule-soft);
+  background: var(--surface);
+}
+
+@media (min-width: 600px) {
+  .post-content iframe { aspect-ratio: 16 / 10; }
 }
 
 /* Quick Menu */

@@ -2,11 +2,11 @@
    UTILITIES - Helper Classes
    ========================================================================== */
 
-/* Container */
+/* Container: wide, with a fluid gutter */
 .container {
   max-width: var(--container-w);
   margin: 0 auto;
-  padding: var(--sp-xl) var(--sp-sm);
+  padding: 0 var(--gutter) var(--sp-3xl);
   animation: container-fade-in 600ms linear both;
 }
 
@@ -17,13 +17,7 @@
 
 @media (min-width: 600px) {
   .container {
-    padding: var(--sp-xl) var(--sp-lg);
-  }
-}
-
-@media (min-width: 1920px) {
-  .container {
-    max-width: var(--container-large);
+    padding: 0 var(--gutter) var(--sp-4xl);
   }
 }
 
@@ -31,8 +25,14 @@
   .container { animation: none; }
 }
 
+/* Narrow pages keep the wide header and centre their content */
 .container.narrow {
-  max-width: var(--container-narrow) !important;
+  max-width: var(--container-w) !important;
+}
+
+.container.narrow > main {
+  max-width: var(--container-narrow);
+  margin-inline: auto;
 }
 
 .inner-container {
@@ -78,14 +78,6 @@
 .legend:active {
   transform: scale(0.96);
   transition: transform 80ms var(--ease);
-}
-
-[data-theme="light"] .legend {
-  color: var(--bg-alt);
-}
-
-[data-theme="light"] .legend:hover {
-  color: var(--text);
 }
 
 /* Mobile visibility */

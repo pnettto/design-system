@@ -1,0 +1,118 @@
+/* ==========================================================================
+   LAYOUT - Page patterns: labels, links, bands, section heads, split pages
+   ========================================================================== */
+
+/* Eyebrow: small gold caps label above a title, or as a row label */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--gold);
+  margin: 0;
+}
+
+/* Strong link: the underlined call to action ("Read my CV", "All work") */
+.link-strong {
+  font-weight: 400;
+  color: var(--gold);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.3em;
+  white-space: nowrap;
+  transition: text-decoration-thickness var(--dur) var(--ease), text-underline-offset var(--dur) var(--ease);
+}
+
+.link-strong:hover {
+  color: var(--highlight);
+  text-decoration-thickness: 2.5px;
+  text-underline-offset: 0.36em;
+}
+
+/* Pill: a quiet inline tag */
+.pill {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+  color: var(--ink-2);
+  font-size: var(--fs-xs);
+  line-height: 1.4;
+}
+
+/* Band: full-bleed coloured strip inside the container, no 100vw scrollbars.
+   .band (surface) or .band-dark (deep) */
+.band {
+  --band-bg: var(--surface);
+  position: relative;
+  background: var(--band-bg);
+  color: var(--band-ink, var(--ink));
+  box-shadow: 0 0 0 100vmax var(--band-bg);
+  clip-path: inset(0 -100vmax);
+  padding-block: clamp(3rem, 7vw, 5.5rem);
+}
+
+.band-dark { --band-bg: var(--deep); }
+
+/* Page header (generic pages) */
+.page-header {
+  margin-bottom: var(--sp-xl);
+}
+
+.page-header h1 {
+  margin: 0 0 var(--sp-sm);
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  color: var(--ink-2);
+  max-width: 40rem;
+}
+
+/* Section head: big title on the left, a link on the right */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-md);
+  flex-wrap: wrap;
+  margin-bottom: clamp(1.75rem, 4vw, 3.25rem);
+}
+
+.section-title {
+  margin: 0;
+}
+
+/* Page split: sticky title and intro on the left, content on the right */
+.page-split {
+  display: grid;
+  gap: var(--sp-xl) clamp(2rem, 6vw, 6rem);
+}
+
+@media (min-width: 900px) {
+  .page-split { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); }
+  .page-split > .split-aside { position: sticky; top: 2rem; align-self: start; }
+}
+
+.page-split > .page-header { margin: 0; }
+
+.page-split > .page-header p {
+  font-size: var(--fs-md);
+  color: var(--ink-muted);
+  max-width: 26rem;
+}
+
+/* Visually hidden, still read by screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

@@ -41,10 +41,9 @@
                             fill-opacity="0.9"
                         />
                     </svg>
+                    <span class="logo-name">Design System</span>
                 </a>
-                <div
-                    style="display: flex; align-items: center; gap: var(--space-md)"
-                >
+                <div class="header-nav">
                     <button
                         class="burger-menu"
                         aria-label="Toggle Menu"
@@ -63,16 +62,6 @@
                                 <a href="gallery.html">Gallery</a>
                             </li>
                         </ul>
-                        <div class="theme-switch-wrapper">
-                            <label
-                                class="theme-switch"
-                                for="theme-toggle"
-                                aria-label="Toggle Dark/Light Mode"
-                            >
-                                <input type="checkbox" id="theme-toggle" />
-                                <div class="slider"></div>
-                            </label>
-                        </div>
                     </nav>
                 </div>
             </header>
@@ -84,49 +73,40 @@
                     <hr>
 
                     <section class="bio-section">
-                        <h2 class="underlined">Colors</h2>
+                        <h2>Colors</h2>
                         <div class="color-grid">
-                            <div
-                                class="color-swatch"
-                                style="background: var(--bg)"
-                            >
-                                <span>--bg</span>
+                            <div class="color-swatch" style="background: var(--paper)">
+                                <span>--paper</span>
                             </div>
-                            <div
-                                class="color-swatch"
-                                style="background: var(--bg-alt)"
-                            >
-                                <span>--bg-alt</span>
+                            <div class="color-swatch" style="background: var(--surface)">
+                                <span>--surface</span>
                             </div>
-                            <div
-                                class="color-swatch"
-                                style="background: var(--accent); color: var(--bg)"
-                            >
-                                <span>--accent</span>
+                            <div class="color-swatch" style="background: var(--surface-2)">
+                                <span>--surface-2</span>
                             </div>
-                            <div
-                                class="color-swatch"
-                                style="background: var(--text); color: var(--bg)"
-                            >
-                                <span>--text</span>
+                            <div class="color-swatch" style="background: var(--deep)">
+                                <span>--deep</span>
                             </div>
-                            <div
-                                class="color-swatch"
-                                style="background: var(--text-muted); color: var(--bg)"
-                            >
-                                <span>--text-muted</span>
+                            <div class="color-swatch" style="background: var(--gold); color: var(--paper)">
+                                <span>--gold</span>
                             </div>
-                            <div
-                                class="color-swatch"
-                                style="background: var(--border)"
-                            >
-                                <span>--border</span>
+                            <div class="color-swatch" style="background: var(--ink); color: var(--paper)">
+                                <span>--ink</span>
+                            </div>
+                            <div class="color-swatch" style="background: var(--ink-2); color: var(--paper)">
+                                <span>--ink-2</span>
+                            </div>
+                            <div class="color-swatch" style="background: var(--ink-muted); color: var(--paper)">
+                                <span>--ink-muted</span>
+                            </div>
+                            <div class="color-swatch" style="background: var(--rule)">
+                                <span>--rule</span>
                             </div>
                         </div>
                     </section>
 
                     <section class="bio-section">
-                        <h2 class="underlined">Typography</h2>
+                        <h2>Typography</h2>
                         <h1>Heading 1 (--fs-2xl)</h1>
                         <h2>Heading 2 (--fs-xl)</h2>
                         <h3>Heading 3 (--fs-lg)</h3>
@@ -142,7 +122,7 @@
                     </section>
 
                     <section class="bio-section">
-                        <h2 class="underlined">Badges</h2>
+                        <h2>Badges</h2>
                         <ul class="tags-list">
                             <li><a href="#" class="badge">Default</a></li>
                             <li><a href="#" class="badge">Design</a></li>
@@ -152,7 +132,7 @@
                     </section>
 
                     <section class="bio-section">
-                        <h2 class="underlined">Buttons & Navigation</h2>
+                        <h2>Buttons & Navigation</h2>
                         <p>
                             <a href="#">Standard link</a> with default styling.
                         </p>
@@ -174,26 +154,55 @@
                     </section>
 
                     <section class="bio-section">
-                        <h2 class="underlined">Toggle Switch</h2>
-                        <div
-                            class="theme-switch-wrapper"
-                            style="margin-bottom: 1rem"
-                        >
-                            <label
-                                class="theme-switch"
-                                for="demo-toggle"
-                                aria-label="Demo toggle"
-                            >
-                                <input type="checkbox" id="demo-toggle">
-                                <div class="slider"></div>
-                            </label>
-                            <span style="margin-left: 1rem"
-                            >Theme toggle component</span>
-                        </div>
+                        <h2>Eyebrow &amp; strong links</h2>
+                        <span class="eyebrow">AI Engineering Consultant · Stockholm</span>
+                        <h3 style="margin-top: 0.5rem">A title under an eyebrow</h3>
+                        <p>
+                            <a href="#" class="link-strong">Read my CV</a>
+                            &nbsp;&nbsp;
+                            <a href="#" class="link-strong">Get in touch</a>
+                            &nbsp;&nbsp;
+                            <span class="pill">pill</span>
+                        </p>
                     </section>
 
                     <section class="bio-section">
-                        <h2 class="underlined">Syntax Highlighting (Prism)</h2>
+                        <header class="section-head">
+                            <h2 class="section-title">Section head</h2>
+                            <a href="#" class="link-strong">All items</a>
+                        </header>
+                        <p>A big title on the left and a link on the right, used to open home page sections.</p>
+                    </section>
+
+                    <section class="bio-section band">
+                        <span class="eyebrow">Now</span>
+                        <h2 style="margin-top: 0.75rem">Band</h2>
+                        <p>A full-bleed strip on <code>--surface</code>. Add <code>.band-dark</code> for <code>--deep</code>.</p>
+                    </section>
+
+                    <section class="bio-section page-split" style="margin-top: var(--sp-2xl)">
+                        <header class="page-header split-aside">
+                            <h2 class="section-title">Page split</h2>
+                            <p>A sticky title and intro on the left, ruled content on the right.</p>
+                        </header>
+                        <ul class="post-list">
+                            <li class="post-item">
+                                <div class="post-item-header">
+                                    <a href="#" class="post-title">A post title</a>
+                                    <span class="post-meta">November 14, 2026</span>
+                                </div>
+                            </li>
+                            <li class="post-item">
+                                <div class="post-item-header">
+                                    <a href="#" class="post-title">Another post</a>
+                                    <span class="post-meta">November 9, 2026</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="bio-section">
+                        <h2>Syntax Highlighting (Prism)</h2>
                         <p>
                             Code blocks with syntax highlighting. Prism.js
                             applies highlighting at runtime:
@@ -214,7 +223,7 @@
                     </section>
 
                     <section class="bio-section">
-                        <h2 class="underlined">Code Runner</h2>
+                        <h2>Code Runner</h2>
                         <p>
                             Interactive code execution with syntax highlighting:
                         </p>
@@ -256,7 +265,7 @@
                     </section>
 
                     <section class="bio-section">
-                        <h2 class="underlined">Video Player (Plyr)</h2>
+                        <h2>Video Player (Plyr)</h2>
                         <p>
                             Video component with Plyr integration. Add <code
                             >.video</code> class to auto-initialize:
@@ -278,7 +287,7 @@
                     </section>
 
                     <section class="bio-section">
-                        <h2 class="underlined">Timeline</h2>
+                        <h2>Timeline</h2>
                         <div class="timeline">
                             <div class="timeline-item">
                                 <div class="year">2024</div>
@@ -299,7 +308,7 @@
                     </section>
 
                     <section class="bio-section">
-                        <h2 class="underlined">Cards</h2>
+                        <h2>Cards</h2>
                         <div
                             class="project-grid"
                             style="grid-template-columns: repeat(2, 1fr)"
@@ -344,7 +353,7 @@
                     </section>
 
                     <section class="bio-section">
-                        <h2 class="underlined">Quick Menu</h2>
+                        <h2>Quick Menu</h2>
                         <div class="quick-menu">
                             <ul>
                                 <li><a href="#">Link One</a></li>
@@ -355,7 +364,7 @@
                     </section>
 
                     <section class="bio-section">
-                        <h2 class="underlined">Spacing Scale</h2>
+                        <h2>Spacing Scale</h2>
                         <div
                             style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-end"
                         >
@@ -393,7 +402,7 @@
                     </section>
 
                     <section class="bio-section">
-                        <h2 class="underlined">Utility Classes</h2>
+                        <h2>Utility Classes</h2>
                         <ul>
                             <li>
                                 <code>.container</code> — centered max-width
@@ -419,6 +428,38 @@
                 </article>
             </main>
         </div>
+
+        <footer class="site-footer">
+            <div class="footer-inner">
+                <div class="footer-hello">
+                    <div>
+                        <h2>Footer</h2>
+                        <p>Get in touch block with an email and social links, then link columns.</p>
+                    </div>
+                    <div class="footer-mail">
+                        <a class="footer-mail-address" href="#">hello@example.com</a>
+                        <ul class="footer-social">
+                            <li><a href="#">GitHub</a></li>
+                            <li><a href="#">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-columns">
+                    <div>
+                        <h3 class="eyebrow">Me</h3>
+                        <ul><li><a href="#">Bio</a></li><li><a href="#">CV</a></li></ul>
+                    </div>
+                    <div>
+                        <h3 class="eyebrow">Work</h3>
+                        <ul><li><a href="#">Development</a></li><li><a href="#">Education</a></li></ul>
+                    </div>
+                    <div>
+                        <h3 class="eyebrow">Words</h3>
+                        <ul><li><a href="#">Logs</a></li><li><a href="#">References</a></li></ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
         <style>
             .color-grid {

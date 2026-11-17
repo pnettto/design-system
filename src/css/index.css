@@ -1,8 +1,8 @@
 /* ==========================================================================
    DESIGN SYSTEM - Main Entry Point
    
-   A modular design system that can be dropped into any project.
-   Customize tokens.css to match your brand.
+   v2: dark only. Gold accent on charcoal, one monospace typeface,
+   hairline rules and quiet surfaces. Customize tokens.css to adapt it.
    ========================================================================== */
 
 /* Core */
@@ -12,7 +12,8 @@
 
 /* Components */
 @import "components/nav.css";
-@import "components/toggle.css";
+@import "components/layout.css";
+@import "components/footer.css";
 @import "components/badge.css";
 @import "components/card.css";
 @import "components/lightbox.css";

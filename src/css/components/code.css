@@ -210,3 +210,7 @@ pre[class*="language-"] {
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+pre[class*="language-"] {
+  border-radius: var(--radius-lg);
+}

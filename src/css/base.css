@@ -20,11 +20,12 @@ body:has(.sticky-tags) {
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--bg);
-  color: var(--text);
+  background-color: var(--paper);
+  color: var(--ink);
   font-family: var(--font);
-  line-height: 1.5;
-  overflow-wrap: anywhere;
+  line-height: 1.75;
+  overflow-wrap: break-word;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -38,22 +39,26 @@ select {
   font-weight: 400;
 }
 
+code, pre, kbd { font-family: var(--font-mono); }
+
+::selection { background: var(--gold); color: var(--paper); }
+
 /* Focus */
 :focus { outline: none; }
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--ink);
   outline-offset: 3px;
   border-radius: var(--radius);
   transition: outline-offset 160ms var(--ease);
 }
 
-/* Links */
+/* Links: gold, with a soft gold underline */
 a {
-  color: var(--accent);
+  color: var(--gold);
   text-decoration: underline;
-  text-decoration-color: color-mix(in oklch, var(--border) 70%, transparent);
+  text-decoration-color: color-mix(in oklch, var(--gold) 45%, transparent);
   text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
+  text-underline-offset: 0.22em;
   transition: color 200ms var(--ease), text-decoration-color 200ms var(--ease);
 }
 
@@ -67,58 +72,40 @@ a:hover {
   text-decoration-color: var(--highlight);
 }
 
-/* Theme transitions (gated by JS after first paint) */
-html.theme-ready,
-html.theme-ready body {
-  transition: background-color 220ms var(--ease), color 220ms var(--ease);
-}
-html.theme-ready * {
-  transition: background-color 220ms var(--ease), border-color 220ms var(--ease), color 220ms var(--ease);
-}
-@media (prefers-reduced-motion: reduce) {
-  html.theme-ready,
-  html.theme-ready body,
-  html.theme-ready * {
-    transition: none;
-  }
-}
-
 /* Dividers */
 hr {
   border: 0;
   height: 1px;
-  background-color: var(--bg-alt);
+  background-color: var(--rule);
   margin: 4rem 0;
 }
 
 /* Headings */
 h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 700;
   color: var(--text-head);
-  line-height: 1.2;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
   margin-top: var(--sp-md);
   margin-bottom: var(--sp-md);
-  font-weight: 700;
 }
 
 h1 {
   font-size: var(--fs-2xl);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
 }
 
 h2 {
   font-size: var(--fs-xl);
-  letter-spacing: -0.02em;
   margin-bottom: var(--sp-lg);
-}
-
-h2.underlined {
-  border-bottom: 1px solid var(--accent);
-  padding-bottom: var(--sp-xs);
 }
 
 h3 {
   font-size: var(--fs-lg);
 }
+
+h1 em, h2 em, h3 em { font-style: italic; }
 
 /* Paragraphs */
 p {

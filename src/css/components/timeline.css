@@ -12,9 +12,9 @@
   position: absolute;
   top: 1rem;
   left: 0;
-  width: 2px;
+  width: 1px;
   height: calc(100% - 1rem);
-  background-color: var(--border);
+  background-color: var(--rule);
 }
 
 .timeline .item {
@@ -25,19 +25,26 @@
 .timeline .item::before {
   content: "";
   position: absolute;
-  left: -2.6rem;
-  top: var(--sp-xs);
-  width: var(--sp-sm);
-  height: var(--sp-sm);
-  background: var(--bg);
-  border: 2px solid var(--accent);
+  left: calc(-1 * var(--sp-lg) - 0.35rem);
+  top: 0.75rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  background: var(--paper);
+  border: 1.5px solid var(--gold);
   border-radius: 50%;
 }
 
+.timeline .item:first-child::before {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
 .timeline .year {
-  font-family: var(--font);
-  color: var(--accent);
-  font-weight: bold;
+  font-family: var(--font-serif);
+  color: var(--gold);
+  font-weight: 700;
   font-size: var(--fs-lg);
   margin-bottom: var(--sp-xs);
 }
+
+.timeline .year a { text-decoration: none; }
