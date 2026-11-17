@@ -3,11 +3,24 @@
    ========================================================================== */
 
 import Plyr from "plyr";
-import "plyr/dist/plyr.css";
+
+// Plyr's stylesheet is added on demand (this module only loads on pages
+// with a video), so the main CSS bundle stays small.
+const PLYR_CSS = "https://cdn.jsdelivr.net/npm/plyr@3.8.3/dist/plyr.css";
+
+function ensurePlyrStyles() {
+    if (document.querySelector('link[href*="plyr"][href$="plyr.css"]')) return;
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = PLYR_CSS;
+    document.head.appendChild(link);
+}
 
 function initVideoPlayers(selector = ".video", options = {}) {
     const videos = document.querySelectorAll(selector);
     if (!videos.length) return [];
+
+    ensurePlyrStyles();
 
     const defaultOptions = {
         autoplay: true,
