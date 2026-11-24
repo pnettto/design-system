@@ -23,7 +23,7 @@ body {
   background-color: var(--paper);
   color: var(--ink);
   font-family: var(--font);
-  line-height: 1.75;
+  line-height: 1.6;
   overflow-wrap: break-word;
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;
@@ -72,6 +72,22 @@ a:hover {
   text-decoration-color: var(--highlight);
 }
 
+/* Links in running text: gold, with a soft gold highlight on hover */
+:where(p, li, blockquote, figcaption) a {
+  border-radius: 3px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease),
+    text-decoration-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+:where(p, li, blockquote, figcaption) a:hover {
+  color: var(--text-head);
+  background-color: var(--gold-soft);
+  box-shadow: 0 0 0 2px var(--gold-soft); /* breathing room, no layout shift */
+  text-decoration-color: var(--gold);
+}
+
 /* Dividers */
 hr {
   border: 0;
@@ -85,7 +101,7 @@ h1, h2, h3, h4 {
   font-family: var(--font-serif);
   font-weight: 700;
   color: var(--text-head);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   line-height: 1.15;
   margin-top: var(--sp-md);
   margin-bottom: var(--sp-md);
@@ -93,6 +109,7 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: var(--fs-2xl);
+  line-height: 1.08;
   letter-spacing: -0.04em;
 }
 
@@ -110,7 +127,7 @@ h1 em, h2 em, h3 em { font-style: italic; }
 /* Paragraphs */
 p {
   margin-top: 0;
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.1rem;
 }
 
 /* Pictures */

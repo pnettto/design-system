@@ -68,7 +68,7 @@ article > p:first-child a,
 }
 
 .post-content {
-  font-size: 1.05rem;
+  font-size: 1.0625rem;
   margin-bottom: 2rem;
 }
 
@@ -85,7 +85,7 @@ article > p:first-child a,
 }
 
 .post-content ul {
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   padding-left: 0.5rem;
 }
 
@@ -96,7 +96,7 @@ article > p:first-child a,
 }
 
 .post-content li {
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
 }
 
 .post-content li ul {

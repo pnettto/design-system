@@ -10,7 +10,7 @@
   --surface: hsl(0 0% 14%);        /* bands, cards */
   --surface-2: hsl(0 0% 17%);      /* card hover */
   --deep: hsl(0 0% 8%);            /* footer, dark bands */
-  --ink: hsl(0 0% 90%);            /* body text */
+  --ink: hsl(0 0% 84%);            /* body text, a touch soft to cut glare */
   --ink-2: hsl(0 0% 78%);          /* secondary text */
   --ink-muted: hsl(0 0% 64%);      /* captions, meta */
   --rule: hsl(0 0% 100% / 0.14);   /* hairlines */
@@ -38,7 +38,7 @@
   --fs-md: 1rem;
   --fs-lg: 1.25rem;
   --fs-xl: clamp(1.6rem, 1.3rem + 1.2vw, 2.3rem);
-  --fs-2xl: clamp(2rem, 1.5rem + 2vw, 3rem);
+  --fs-2xl: clamp(2.25rem, 1.5rem + 3vw, 3.75rem);
 
   /* Spacing */
   --sp-xs: 0.5rem;
