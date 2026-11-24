@@ -29,7 +29,7 @@
   --border: #333333;
 
   /* Typography */
-  --font: "code saver", ui-monospace, "SF Mono", Menlo, monospace;
+  --font: "code-saver", ui-monospace, "SF Mono", Menlo, monospace;
   --font-serif: var(--font);
   --font-mono: var(--font);
   --fs-base: 16px;
